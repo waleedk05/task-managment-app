@@ -26,7 +26,7 @@ export default function DashboardLayout({children}) {
             <div className="flex items-center gap-4">
               <SidebarTrigger />
               <div>
-                <h1 className="text-xl font-semibold">Welcome, {currentUser.name}!</h1>
+                <h1 className="text-xl font-semibold">Welcome, {currentUser?.name || "User"}!</h1>
               </div>
             </div>
 

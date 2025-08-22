@@ -58,17 +58,17 @@ export function AppSidebar() {
   const baseItems = [
     {
       title: "All Tasks",
-      url: "#",
+      url: "/dashboard/all-tasks",
       icon: Calendar,
     },
     {
       title: "Completed Tasks",
-      url: "#",
+      url: "/dashboard/completed-tasks",
       icon: Check,
     },
     {
       title: "Pending Tasks",
-      url: "#",
+      url: "/dashboard/pending-tasks",
       icon: Clock,
     },
   ];
@@ -120,8 +120,8 @@ export function AppSidebar() {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <span className="font-bold">{currentUser.name}</span>
-                    <p className="text-sm text-gray-600">{currentUser.email}</p>
+                    <span className="font-bold">{currentUser?.name || "User"}</span>
+                    <p className="text-sm text-gray-600">{currentUser?.email || "Email"}</p>
                   </div>
 
                   <ChevronUp className="ml-auto" />
@@ -132,12 +132,14 @@ export function AppSidebar() {
                 align="end"
                 className="w-[--radix-popper-anchor-width] min-w-59">
                 <DropdownMenuItem className="cursor-pointer">
-                  <BadgeCheck color="black" /> <span>Account</span>
+                  <BadgeCheck color="black" />
+                  <Link href="/dashboard/profile-settings">
+                    <span>Account</span>
+                  </Link>
                 </DropdownMenuItem>
 
                 <DropdownMenuItem
                   className="cursor-pointer"
-                  // onClick={handleLogout}
                   onSelect={(e) => {
                     // Prevent dropdown from closing
                     e.preventDefault();

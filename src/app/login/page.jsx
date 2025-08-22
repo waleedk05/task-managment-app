@@ -75,9 +75,9 @@ export default function CardDemo() {
 
       setTimeout(() => {
         if (user.role == "team_lead") {
-          router.push("/dashboard/teamLead");
+          router.push("/dashboard/all-tasks");
         } else if (user.role == "team_member") {
-          router.push("/dashboard/teamMember");
+          router.push("/dashboard/all-tasks");
         } else {
           router.push("/login");
         }
