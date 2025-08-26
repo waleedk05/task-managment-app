@@ -50,6 +50,33 @@ export default function useAuth() {
     };
   }, []);
 
+  // Function to fetch all users from localStorage
+  const fetchUsers = () => {
+    try {
+      const usersData = localStorage.getItem("users");
+      if (!usersData) {
+        return [];
+      }
+      return JSON.parse(usersData);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      toast.error("Failed to load users");
+      return [];
+    }
+  };
+
+  // Function to get users by role
+  const getUsersByRole = (role) => {
+    const allUsers = fetchUsers();
+    return allUsers.filter((user) => user.role === role);
+  };
+
+  // Function to get users excluding current user
+  const getOtherUsers = () => {
+    const allUsers = fetchUsers();
+    return allUsers.filter((user) => user.id !== currentUser?.id);
+  };
+
   const logout = async () => {
     try {
       setLoading(true);
@@ -68,5 +95,12 @@ export default function useAuth() {
     }
   };
 
-  return {currentUser, loading, logout};
+  return {
+    currentUser,
+    loading,
+    logout,
+    fetchUsers,
+    getUsersByRole,
+    getOtherUsers,
+  };
 }

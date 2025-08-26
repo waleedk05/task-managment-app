@@ -22,17 +22,13 @@ export default function DashboardLayout({children}) {
         <AppSidebar />
         <div className="flex-1">
           {/* Header */}
-          <header className="border-b p-4 flex justify-between items-center bg-white">
+          <header className="border-b p-3 flex justify-between items-center bg-white">
             <div className="flex items-center gap-4">
               <SidebarTrigger />
               <div>
-                <h1 className="text-xl font-semibold">Welcome, {currentUser?.name || "User"}!</h1>
+                <h1 className="text-0xl font-semibold">Task Managment</h1>
               </div>
             </div>
-
-            <Button variant="destructive" onClick={logout}>
-              Logout
-            </Button>
           </header>
 
           {/* Main Content */}

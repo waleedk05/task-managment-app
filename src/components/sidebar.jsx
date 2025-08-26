@@ -131,12 +131,12 @@ export function AppSidebar() {
                 side="top"
                 align="end"
                 className="w-[--radix-popper-anchor-width] min-w-59">
-                <DropdownMenuItem className="cursor-pointer">
-                  <BadgeCheck color="black" />
-                  <Link href="/dashboard/profile-settings">
+                <Link href="/dashboard/account">
+                  <DropdownMenuItem className="cursor-pointer">
+                    <BadgeCheck color="black" />
                     <span>Account</span>
-                  </Link>
-                </DropdownMenuItem>
+                  </DropdownMenuItem>
+                </Link>
 
                 <DropdownMenuItem
                   className="cursor-pointer"
